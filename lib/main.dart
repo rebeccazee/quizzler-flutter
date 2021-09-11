@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quizzler/question.dart';
+import 'package:quizzler/quiz_brain.dart';
 
 void main() => runApp(Quizzler());
 
@@ -27,18 +27,7 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
-
-  List<Question> questionBank = [
-    Question(
-        questionText: 'You can lead a cow down stairs but not up',
-        questionAnswer: false),
-    Question(
-        questionText:
-            'Approximately one quarter of human bones are in the feet.',
-        questionAnswer: true),
-    Question(questionText: "A slug's blood is green.", questionAnswer: true),
-  ];
-
+  QuizBrain quizBrain = QuizBrain();
   int questionNumber = 0;
 
   @override
@@ -53,7 +42,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questionBank[questionNumber].questionText as String,
+                quizBrain.questionBank[questionNumber].questionText as String,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -78,7 +67,8 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked true.
-                if (questionBank[questionNumber].questionAnswer == true) {
+                if (quizBrain.questionBank[questionNumber].questionAnswer ==
+                    true) {
                   print('User got it right!');
                 } else {
                   print('User got it wrong!');
@@ -105,7 +95,8 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked false.
-                if (questionBank[questionNumber].questionAnswer == false) {
+                if (quizBrain.questionBank[questionNumber].questionAnswer ==
+                    false) {
                   print('User got it right!');
                 } else {
                   print('User got it wrong!');
