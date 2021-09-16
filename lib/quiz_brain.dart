@@ -5,6 +5,9 @@ class QuizBrain {
 
   List<Question> _questionBank = [
     Question(
+        questionText: 'Some cats are actually allergic to humans',
+        questionAnswer: true),
+    Question(
         questionText: 'You can lead a cow down stairs but not up',
         questionAnswer: false),
     Question(
